@@ -1,0 +1,9 @@
+# directories
+venv/
+keys/
+media/
+
+# file types
+*.sqlite3
+
+# files
