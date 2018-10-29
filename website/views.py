@@ -9,7 +9,7 @@ def home(request):
         article = Article.objects.filter(category=category)[0]
         latest.append(article)
 
-    status_updates = StatusUpdate.objects.all()[50]
+    status_updates = StatusUpdate.objects.all()[0:50]
     return render(request, 'website/home.html', {
         'articles': latest,
         'status_updates': status_updates,
