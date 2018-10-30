@@ -7,7 +7,8 @@ def home(request):
     latest = []
     for category in Category.objects.all():
         article = Article.objects.filter(subcategory__category=category)[0:1]
-        latest.append(article)
+        if article:
+            latest.append(article[0])
 
     status_updates = StatusUpdate.objects.all()[0:50]
     return render(request, 'website/home.html', {
@@ -43,7 +44,7 @@ def list_sub_articles(request, subcategory_name):
 def list_searched_articles(request, fields):
     article_list = (Article.objects.filter(title__contains=fields) |
                     Article.objects.filter(content__contains=fields) |
-                    Article.objects.filter(author__contains=fields))
+                    Article.objects.filter(author__name__contains=fields))
 
     paginator = Paginator(article_list, 20)
 
