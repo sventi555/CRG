@@ -13,6 +13,19 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural = 'Categories'
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name
+
+
+class Subcategory(models.Model):
+    name = models.CharField(max_length=50)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="subcategories")
+
+    class Meta:
+        verbose_name_plural = 'Subcategories'
+        ordering = ['name']
 
     def __str__(self):
         return self.name
@@ -24,7 +37,7 @@ class Article(models.Model):
     image = models.ImageField(null=True)
     date = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    subcategory = models.ForeignKey(Subcategory, on_delete=models.CASCADE)
 
     @property
     def textdump(self):

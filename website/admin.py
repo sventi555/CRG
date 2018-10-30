@@ -5,14 +5,17 @@ admin.site.register(StatusUpdate)
 admin.site.register(Author)
 admin.site.register(Category)
 
+@admin.register(Subcategory)
+class SubcategoryAdmin(admin.ModelAdmin):
+    fields = [
+        'name',
+        'category',
+    ]
 
-class AuthorInline(admin.TabularInline):
-    model = Author
-
-
-class CategoryInline(admin.TabularInline):
-    model = Category
-
+    list_display = [
+        'name',
+        'category',
+    ]
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
@@ -21,18 +24,13 @@ class ArticleAdmin(admin.ModelAdmin):
         'content',
         'image',
         'author',
-        'category',
-    ]
-
-    inline = [
-        AuthorInline,
-        CategoryInline,
+        'subcategory',
     ]
 
     list_display = [
         'title',
         'author',
-        'category',
+        'subcategory',
     ]
 
 
