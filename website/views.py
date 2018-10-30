@@ -17,7 +17,7 @@ def home(request):
 
 
 def list_articles(request, category_name):
-    article_list = Article.objects.filter(category__name=category_name)
+    article_list = Article.objects.filter(subcategory__category__name=category_name)
 
     paginator = Paginator(article_list, 20)
 
