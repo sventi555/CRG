@@ -5,21 +5,12 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{% url "website:home" %}">Home <span class="sr-only">(current)</span></a>
             </li>
             {% for category in categories %}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="{% url "website:list_articles" category.name %}" >
-                        {{ category.name }}
-                    </a>
-                    <div class="dropdown-menu">
-                        {% for subcategory in category.subcategories.all %}
-                            <a class="dropdown-item" href="{% url "website:list_sub_articles" subcategory.name %}">
-                                {{ subcategory.name }}
-                            </a>
-                        {% endfor %}
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "website:list_articles"  category %}">{{ category.name }}</a>
                 </li>
             {% endfor %}
         </ul>
