@@ -1,7 +1,7 @@
 #header {
     width: 100%;
     height: 7.6rem;
-    background-color: #ff5356;
+    background-color: #d6dfd9;
 }
 
 #header_logo {
@@ -13,7 +13,7 @@
 }
 
 #header_names {
-    color: #53504f;
+    color: #1d3253;
     position: absolute;
     top: -0.6rem;
     left: 7.2rem;

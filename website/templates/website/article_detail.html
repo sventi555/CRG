@@ -1,1 +1,4 @@
 {% include "layout.html" %}
+{% load extras %}
+
+{{ article.content|markdown_to_html }}

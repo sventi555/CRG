@@ -18,6 +18,7 @@ def home(request):
 
 
 def list_articles(request, category_name):
+    # TODO: change method of filtering to pk
     article_list = Article.objects.filter(subcategory__category__name=category_name)
 
     paginator = Paginator(article_list, 20)
@@ -30,6 +31,7 @@ def list_articles(request, category_name):
 
 
 def list_sub_articles(request, subcategory_name):
+    # TODO: change method of filtering to pk
     article_list = Article.objects.filter(subcategory__name=subcategory_name)
 
     paginator = Paginator(article_list, 20)
@@ -55,8 +57,8 @@ def list_searched_articles(request, fields):
     })
 
 
-def article_detail(request, article_id, previous_page=1):
-    article = Article.objects.get(pk=article_id)
+def article_detail(request, pk, previous_page=1):
+    article = Article.objects.get(pk=pk)
     return render(request, 'website/article_detail.html', {
         'article': article,
         'previous_page': previous_page,
