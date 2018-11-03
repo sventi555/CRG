@@ -17,9 +17,9 @@ def home(request):
     })
 
 
-def list_articles(request, category_name):
-    # TODO: change method of filtering to pk
-    article_list = Article.objects.filter(subcategory__category__name=category_name)
+def list_articles(request, pk):
+    category = Category.objects.get(pk=pk)
+    article_list = Article.objects.filter(subcategory__category=category)
 
     paginator = Paginator(article_list, 20)
 
@@ -27,12 +27,12 @@ def list_articles(request, category_name):
     articles = paginator.get_page(page)
     return render(request, 'website/list_articles.html', {
         'articles': articles,
+        'category': category,
     })
 
 
-def list_sub_articles(request, subcategory_name):
-    # TODO: change method of filtering to pk
-    article_list = Article.objects.filter(subcategory__name=subcategory_name)
+def list_sub_articles(request, pk):
+    article_list = Article.objects.filter(subcategory__pk=pk)
 
     paginator = Paginator(article_list, 20)
 

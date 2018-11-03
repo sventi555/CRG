@@ -1,3 +1,32 @@
 {% include "layout.html" %}
 {% load static %}
+{% load extras %}
 
+{% block head %}
+    <link rel="stylesheet" href="{% static "css/list_articles.css" %}">
+{% endblock head %}
+
+{% block main %}
+    {% if category %}
+        <div class="subcategories d-flex justify-content-center">
+            {% for subcategory in category.subcategories.all %}
+                <a id="subcategory" class="btn btn-outline-secondary" href="{% url "website:list_sub_articles" subcategory.pk %}">
+                    {{ subcategory.name|category_parse }}
+                </a>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <div class="articles">
+        {% for article in articles %}
+            <div class="article d-flex">
+                <div class="text_info">
+                    <p class="article_title">{{ article.title }}</p>
+                    <p class="article_author">{{ article.author.name }}</p>
+                    <p class="article_date">{{ article.date }}</p>
+                </div>
+                <img src="{{ article.image.url }}">
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock main %}

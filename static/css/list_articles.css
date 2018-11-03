@@ -1,0 +1,23 @@
+.articles {
+    margin: 2em;
+    width: 60vw;
+}
+
+.article {
+    border-bottom: 1px solid #d6dfd9;
+    padding: 1rem 0;
+}
+
+.article img {
+    width: 10em;
+    height: 10em;
+    margin-left: 1em;
+}
+
+.subcategory {
+
+}
+
+/*@media only screen and (min-width: 1224px) {*/
+
+/*}*/

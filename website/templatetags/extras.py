@@ -25,3 +25,12 @@ def markdown_to_html(markdown_text):
     """
     html_body = markdown2.markdown(markdown_text)
     return mark_safe(html_body)
+
+
+@register.filter('category_parse')
+def category_parse(subcategory):
+    """
+    :param category: a subcategory name
+    :return: the name with the parent category parsed out
+    """
+    return subcategory[subcategory.find('-') + 1:]
