@@ -19,7 +19,26 @@ def home(request):
 
 def list_articles(request, pk):
     category = Category.objects.get(pk=pk)
-    article_list = Article.objects.filter(subcategory__category=category)
+    article_list = Article.objects.filter(subcategory__category=category)[1:]
+    feature_article = Article.objects.filter(subcategory__category=category)[0]
+
+    paginator = Paginator(article_list, 20)
+
+    page = request.GET.get('page')
+    articles = paginator.get_page(page)
+    return render(request, 'website/list_articles.html', {
+        'articles': articles,
+        'feature_article': feature_article,
+        'category': category,
+    })
+
+
+def list_sub_articles(request, pk):
+    subcategory = Subcategory.objects.get(pk=pk)
+    category = subcategory.category
+
+    article_list = Article.objects.filter(subcategory=subcategory)
+    feature_article = Article.objects.filter(subcategory__category=category)[0]
 
     paginator = Paginator(article_list, 20)
 
@@ -28,18 +47,8 @@ def list_articles(request, pk):
     return render(request, 'website/list_articles.html', {
         'articles': articles,
         'category': category,
-    })
-
-
-def list_sub_articles(request, pk):
-    article_list = Article.objects.filter(subcategory__pk=pk)
-
-    paginator = Paginator(article_list, 20)
-
-    page = request.GET.get('page')
-    articles = paginator.get_page(page)
-    return render(request, 'website/list_articles.html', {
-        'articles': articles,
+        'subcategory': subcategory,
+        'feature_article': feature_article,
     })
 
 

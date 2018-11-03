@@ -1,8 +1,8 @@
-// $(document).ready(function() {
-//     checkSize();
-//     $(window).resize(checkSize);
-// });
-//
-// function checkSize(){
-//
-// }
+$(document).ready(function() {
+    checkSize();
+    $(window).resize(checkSize);
+});
+
+function checkSize(){
+
+}

@@ -8,25 +8,41 @@
 
 {% block main %}
     {% if category %}
-        <div class="subcategories d-flex justify-content-center">
+        <div class="subcategories d-flex flex-wrap justify-content-center">
             {% for subcategory in category.subcategories.all %}
-                <a id="subcategory" class="btn btn-outline-secondary" href="{% url "website:list_sub_articles" subcategory.pk %}">
+                <a id="subcategory" class="btn btn-outline-secondary mx-2" href="{% url "website:list_sub_articles" subcategory.pk %}">
                     {{ subcategory.name|category_parse }}
                 </a>
             {% endfor %}
         </div>
     {% endif %}
-    <div class="articles">
-        {% for article in articles %}
-            <div class="article d-flex">
-                <div class="text_info">
-                    <p class="article_title">{{ article.title }}</p>
-                    <p class="article_author">{{ article.author.name }}</p>
-                    <p class="article_date">{{ article.date }}</p>
-                </div>
-                <img src="{{ article.image.url }}">
-            </div>
-        {% endfor %}
+    <div id="content" class="d-flex justify-content-between">
+        <div id="articles">
+            {% for article in articles %}
+                <a href="{% url "website:article_detail" article.pk %}">
+                    <div class="article d-flex">
+                        <div class="text_info">
+                            <p class="article_title">{{ article.title }}</p>
+                            <p class="article_author">{{ article.author.name }}</p>
+                            <p class="article_date">{{ article.date }}</p>
+                        </div>
+                        <img src="{{ article.image.url }}">
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+        <div id="feature">
+            <p id="featured_in"><small>Featured in {{ category }}:</small></p>
+            <img class="mx-auto" src="{{ feature_article.image.url }}">
+            <p class="article_title">{{ feature_article.title }}</p>
+            <p class="preview_content">{{ feature_article.content|truncatechars:100 }}</p>
+            <p class="article_author">{{ feature_article.author.name }}</p>
+            <p class="article_date">{{ feature_article.date }}</p>
+        </div>
     </div>
 
 {% endblock main %}
+
+{% block scripts %}
+    <script src="{% static "js/list_articles.js" %}"></script>
+{% endblock scripts %}
