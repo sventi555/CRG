@@ -10,7 +10,7 @@ def home(request):
         if article:
             latest.append(article[0])
 
-    status_updates = StatusUpdate.objects.all()[0:50]
+    status_updates = StatusUpdate.objects.all()[0:10]
     return render(request, 'website/home.html', {
         'articles': latest,
         'status_updates': status_updates,
@@ -20,7 +20,11 @@ def home(request):
 def list_articles(request, pk):
     category = Category.objects.get(pk=pk)
     article_list = Article.objects.filter(subcategory__category=category)[1:]
-    feature_article = Article.objects.filter(subcategory__category=category)[0]
+    feature_article = Article.objects.filter(subcategory__category=category)
+    if feature_article:
+        feature_article = feature_article[0]
+    else:
+        feature_article = None
 
     paginator = Paginator(article_list, 20)
 
@@ -38,7 +42,11 @@ def list_sub_articles(request, pk):
     category = subcategory.category
 
     article_list = Article.objects.filter(subcategory=subcategory)
-    feature_article = Article.objects.filter(subcategory__category=category)[0]
+    feature_article = Article.objects.filter(subcategory__category=category)
+    if feature_article:
+        feature_article = feature_article[0]
+    else:
+        feature_article = None
 
     paginator = Paginator(article_list, 20)
 
@@ -63,6 +71,7 @@ def list_searched_articles(request, fields):
     articles = paginator.get_page(page)
     return render(request, 'website/list_articles.html', {
         'articles': articles,
+        'fields': fields,
     })
 
 
