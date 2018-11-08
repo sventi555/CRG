@@ -1,6 +1,7 @@
 $(document).ready(function() {
-    checkSize();
-    $(window).resize(checkSize);
+    if ($("#feature")) {
+        $("#articles").css("width", "100%")
+    }
 });
 
 function checkSize(){
