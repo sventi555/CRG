@@ -10,10 +10,12 @@ let navbar = document.getElementById("menu_bar");
 
 let sticky = navbar.offsetTop;
 
+
 function myFunction() {
+    let offset = navbar.offsetHeight;
     if (window.pageYOffset >= sticky) {
         navbar.classList.add("sticky");
-        $("main").css("padding-top", "3.5em");
+        $("main").css("padding-top", `${offset}px`);
     } else {
         navbar.classList.remove("sticky");
         $("main").css("padding-top", "0");
