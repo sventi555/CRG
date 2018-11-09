@@ -43,6 +43,21 @@
 
 footer {
     background-color: #1d3253;
+    padding: 0.6em;
+    text-align: center;
+}
+
+footer img {
+    width: 2em;
+    height: 2em;
+    padding: 1px;
+    transition: background-color 0.2s ease-in-out;
+    border-radius: 0.3em;
+}
+
+footer img:hover {
+    background-color: rgba(214, 223, 217, 0.2);
+    transition: background-color 0.2s ease-in-out;
 }
 
 
