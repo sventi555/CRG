@@ -1,4 +1,4 @@
-{% include "layout.html" %}
+{% extends "layout.html" %}
 {% load static %}
 
 {% block head %}
@@ -7,31 +7,33 @@
 {% endblock head %}
 
 {% block main %}
-    <div id="wrapper" class="container-fluid d-xl-flex flex-xl-row">
-        <div id="article-grid" class="container-fluid mb-4">
-            {% for article in articles %}
-                <a href="{% url "website:article_detail" article.pk 1 %}" class='grid-item' style="background-image: url('{{ article.image.url }}');">
-                    <div class="item-heading">
-                        <p class='item-subcategory'>{{ article.subcategory.category }}</p>
+    <main>
+        <div id="wrapper" class="container-fluid d-xl-flex flex-xl-row">
+            <div id="article-grid" class="container-fluid mb-4">
+                {% for article in articles %}
+                    <a href="{% url "website:article_detail" article.pk 1 %}" class='grid-item' style="background-image: url('{{ article.image.url }}');">
+                        <div class="item-heading">
+                            <p class='item-subcategory'>{{ article.subcategory.category }}</p>
+                        </div>
+                        <p class='item-title'>{{ article.title }}</p>
+                        <div class="item-footer">
+                            <p class='item-author'>{{ article.author.name }}<p>
+                            <p class='item-date'>{{ article.date|date:'Y-m-d' }}</p>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+            <div id="sidebar" class="container-fluid">
+                {% for update in status_updates %}
+                    <div class="info-card">
+                        <div class="info-card-body">
+                            <p>{{ update.content }}</p>
+                            <p><em> - {{ update.date }}</em></p>
+                        </div>
                     </div>
-                    <p class='item-title'>{{ article.title }}</p>
-                    <div class="item-footer">
-                        <p class='item-author'>{{ article.author.name }}<p>
-                        <p class='item-date'>{{ article.date|date:'Y-m-d' }}</p>
-                    </div>
-                </a>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
-        <div id="sidebar" class="container-fluid">
-            {% for update in status_updates %}
-                <div class="info-card">
-                    <div class="info-card-body">
-                        <p>{{ update.content }}</p>
-                        <p><em> - {{ update.date }}</em></p>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
+    </main>
 {% endblock main %}
 

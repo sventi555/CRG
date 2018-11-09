@@ -1,4 +1,4 @@
-{% include "layout.html" %}
+{% extends "layout.html" %}
 {% load static %}
 {% load extras %}
 
@@ -7,81 +7,81 @@
 {% endblock head %}
 
 {% block main %}
-
-    {% if category %}
-        <div class="subcategories d-flex flex-wrap justify-content-center">
-            {% for subcategory in category.subcategories.all %}
-                <a id="subcategory" class="btn btn-outline-secondary mx-2" href="{% url "website:list_sub_articles" subcategory.pk %}">
-                    {{ subcategory.name|category_parse }}
-                </a>
-            {% endfor %}
-        </div>
-    {% endif %}
-
-
-    <div id="content" class="d-xl-flex justify-content-center">
-
-        <div id="articles">
-
-            <p id="context"><u>
-                {% if fields %}
-                    Results containing: <b>"{{ fields }}"</b>:
-                {% elif subcategory %}
-                    Articles from <b>{{ subcategory }}</b>
-                {% elif category %}
-                    Articles from <b>{{ category }}</b>
-                {% endif %}
-            </u></p>
-
-            {% for article in articles %}
-                {% if article != feature_article %}
-                    <a href="{% url "website:article_detail" article.pk articles.number %}">
-                        <div class="article d-flex">
-                            <div class="text_info">
-                                <p class="article_title">{{ article.title }}</p>
-                                <p class="article_author">{{ article.author.name }}</p>
-                                <p class="article_date">{{ article.date }}</p>
-                            </div>
-                            <div class="image" style="background-image:url({{ article.image.url }})"></div>
-                        </div>
+    <main>
+        {% if category %}
+            <div class="subcategories d-flex flex-wrap justify-content-center">
+                {% for subcategory in category.subcategories.all %}
+                    <a id="subcategory" class="btn btn-outline-secondary mx-2" href="{% url "website:list_sub_articles" subcategory.pk %}">
+                        {{ subcategory.name|category_parse }}
                     </a>
-                {% endif %}
-            {% endfor %}
-        </div>
-
-        {% if feature_article %}
-            <a href="{% url "website:article_detail" feature_article.pk articles.number %}">
-                <div id="feature">
-                    <p id="featured_in"><small>Featured in {{ category }}:</small></p>
-                    <div class="image mx-auto" style="background-image:url({{ feature_article.image.url }})"></div>
-                    <p class="article_title">{{ feature_article.title }}</p>
-                    <p class="article_author">{{ feature_article.author.name }}</p>
-                    <p class="article_date">{{ feature_article.date }}</p>
-                </div>
-            </a>
+                {% endfor %}
+            </div>
         {% endif %}
 
-    </div>
 
+        <div id="content" class="d-xl-flex justify-content-center">
 
-    <div class="pagination justify-content-center">
-        <span class="step-links">
-            {% if articles.has_previous %}
-                <a href="?page=1">&laquo; first</a>
-                <a href="?page={{ articles.previous_page_number }}">previous</a>
+            <div id="articles">
+
+                <p id="context"><u>
+                    {% if fields %}
+                        Results containing: <b>"{{ fields }}"</b>:
+                    {% elif subcategory %}
+                        Articles from <b>{{ subcategory }}</b>
+                    {% elif category %}
+                        Articles from <b>{{ category }}</b>
+                    {% endif %}
+                </u></p>
+
+                {% for article in articles %}
+                    {% if article != feature_article %}
+                        <a href="{% url "website:article_detail" article.pk articles.number %}">
+                            <div class="article d-flex">
+                                <div class="text_info">
+                                    <p class="article_title">{{ article.title }}</p>
+                                    <p class="article_author">{{ article.author.name }}</p>
+                                    <p class="article_date">{{ article.date }}</p>
+                                </div>
+                                <div class="image" style="background-image:url({{ article.image.url }})"></div>
+                            </div>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            {% if feature_article %}
+                <a href="{% url "website:article_detail" feature_article.pk articles.number %}">
+                    <div id="feature">
+                        <p id="featured_in"><small>Featured in {{ category }}:</small></p>
+                        <div class="image mx-auto" style="background-image:url({{ feature_article.image.url }})"></div>
+                        <p class="article_title">{{ feature_article.title }}</p>
+                        <p class="article_author">{{ feature_article.author.name }}</p>
+                        <p class="article_date">{{ feature_article.date }}</p>
+                    </div>
+                </a>
             {% endif %}
 
-            <span class="current">
-                Page {{ articles.number }} of {{ articles.paginator.num_pages }}.
+        </div>
+
+
+        <div class="pagination justify-content-center">
+            <span class="step-links">
+                {% if articles.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ articles.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ articles.number }} of {{ articles.paginator.num_pages }}.
+                </span>
+
+                {% if contacts.has_next %}
+                    <a href="?page={{ articles.next_page_number }}">next</a>
+                    <a href="?page={{ articles.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
             </span>
-
-            {% if contacts.has_next %}
-                <a href="?page={{ articles.next_page_number }}">next</a>
-                <a href="?page={{ articles.paginator.num_pages }}">last &raquo;</a>
-            {% endif %}
-        </span>
-    </div>
-
+        </div>
+    </main>
 {% endblock main %}
 
 {% block scripts %}

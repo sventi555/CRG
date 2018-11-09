@@ -30,6 +30,10 @@
     margin: -1.3rem 0 0 0.7rem;
 }
 
+.navbar {
+    background-color: #1d3253;
+}
+
 .sticky {
     position: fixed;
     top: 0;
@@ -37,8 +41,8 @@
     z-index: 1000;
 }
 
-header + main {
-
+footer {
+    background-color: #1d3253;
 }
 
 
