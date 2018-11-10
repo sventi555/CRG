@@ -7,18 +7,20 @@
 {% endblock head %}
 
 {% block main %}
-    <div class="container">
-        <h2 id="title">{{ article.title }}</h2>
-        <div id="banner" style="background-image:url({{ article.image.url }})"></div>
-        <div id="article_info">
-            <p><small>
-                By {{ article.author.name }}<br>
-                Published {{ article.date|date:'Y-m-d' }}<br>
-            </small></p>
+    <main>
+        <div class="container">
+            <h2 id="title">{{ article.title }}</h2>
+            <div id="banner" style="background-image:url({{ article.image.url }})"></div>
+            <div id="article_info">
+                <p><small>
+                    By {{ article.author.name }}<br>
+                    Published {{ article.date|date:'Y-m-d' }}<br>
+                </small></p>
+            </div>
+            <div>
+                {{ article.content|markdown_to_html }}
+            </div>
         </div>
-        <div>
-            {{ article.content|markdown_to_html }}
-        </div>
-    </div>
+    </main>
 {% endblock main %}
 
