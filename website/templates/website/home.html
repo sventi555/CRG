@@ -11,7 +11,7 @@
         <div id="wrapper" class="container-fluid d-xl-flex flex-xl-row">
             <div id="article-grid" class="container-fluid mb-4">
                 {% for article in articles %}
-                    <a href="{% url "website:article_detail" article.pk 1 %}" class='grid-item' style="background-image: url('{{ article.image.url }}');">
+                    <a href="{% url "website:article_detail" article.pk %}" class='grid-item' style="background-image: url('{{ article.image.url }}');">
                         <div class="item-heading">
                             <p class='item-subcategory'>{{ article.subcategory.category }}</p>
                         </div>

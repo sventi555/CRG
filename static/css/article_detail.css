@@ -17,3 +17,15 @@ img {
     width: 30%;
     margin-bottom: 2em;
 }
+
+#back, #back:link, #back:visited, #back:hover, #back:active {
+    display: inline-block;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #1d3253;
+}
+
+#back:hover {
+    text-decoration: underline;
+}

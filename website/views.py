@@ -75,9 +75,8 @@ def list_searched_articles(request, fields):
     })
 
 
-def article_detail(request, pk, previous_page=1):
+def article_detail(request, pk):
     article = Article.objects.get(pk=pk)
     return render(request, 'website/article_detail.html', {
         'article': article,
-        'previous_page': previous_page,
     })
