@@ -3,8 +3,14 @@ from .models import *
 
 admin.site.register(StatusUpdate)
 admin.site.register(Author)
-admin.site.register(Category)
 admin.site.register(Image)
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = [
+        'order',
+        'name'
+    ]
 
 
 @admin.register(Subcategory)
@@ -28,6 +34,7 @@ class ArticleAdmin(admin.ModelAdmin):
         'image',
         'author',
         'subcategory',
+        'featured',
     ]
 
     list_display = [

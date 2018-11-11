@@ -11,10 +11,13 @@ class Author(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
+    order = models.IntegerField(null=True)
 
     class Meta:
         verbose_name_plural = 'Categories'
-        ordering = ['name']
+        ordering = ['-order',
+                    'name',
+                    ]
 
     def __str__(self):
         return self.name
@@ -39,13 +42,18 @@ class Image(models.Model):
         return f'https://domain.com/media/{self.image.name}'
 
 
+# TODO: move header layout and edit font, add about page, social media links
+
 class Article(models.Model):
     title = models.CharField(max_length=140)
     content = models.TextField()
+    # TODO: Endnotes
+    # TODO: Preview
     image = models.ImageField(upload_to="thumbnails/", null=True)
     date = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    subcategory = models.ForeignKey(Subcategory, on_delete=models.CASCADE)
+    subcategory = models.ForeignKey(Subcategory, on_delete=models.SET_NULL, null=True)
+    featured = models.BooleanField(default=False)
 
     @property
     def textdump(self):

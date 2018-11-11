@@ -19,7 +19,7 @@
                 </small></p>
             </div>
             <div>
-                {{ article.content|markdown_to_html }}
+                {{ article.content|markdown_to_html|linebreaks }}
             </div>
         </div>
     </main>

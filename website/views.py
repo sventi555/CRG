@@ -21,7 +21,7 @@ def home(request):
 def list_articles(request, pk):
     category = Category.objects.get(pk=pk)
     article_list = Article.objects.filter(subcategory__category=category)[1:]
-    feature_article = Article.objects.filter(subcategory__category=category)
+    feature_article = Article.objects.filter(subcategory__category=category).exclude(featured=False)
     if feature_article:
         feature_article = feature_article[0]
     else:
@@ -43,7 +43,7 @@ def list_sub_articles(request, pk):
     category = subcategory.category
 
     article_list = Article.objects.filter(subcategory=subcategory)
-    feature_article = Article.objects.filter(subcategory__category=category)
+    feature_article = Article.objects.filter(subcategory__category=category).exclude(featured=False)
     if feature_article:
         feature_article = feature_article[0]
     else:
