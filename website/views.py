@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.core.paginator import Paginator
 from .models import *
 
-ARTICLES_PER_PAGE = 1
+ARTICLES_PER_PAGE = 10
 
 def home(request):
     latest = []
