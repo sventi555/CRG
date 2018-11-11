@@ -69,6 +69,10 @@
     margin-bottom: 1em;
 }
 
+.page_buttons {
+    font-size: 1.6em;
+}
+
 @media (max-width: 576px) {
 
 }

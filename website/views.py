@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.core.paginator import Paginator
 from .models import *
 
+ARTICLES_PER_PAGE = 1
 
 def home(request):
     latest = []
@@ -26,7 +27,7 @@ def list_articles(request, pk):
     else:
         feature_article = None
 
-    paginator = Paginator(article_list, 20)
+    paginator = Paginator(article_list, ARTICLES_PER_PAGE)
 
     page = request.GET.get('page')
     articles = paginator.get_page(page)
@@ -48,7 +49,7 @@ def list_sub_articles(request, pk):
     else:
         feature_article = None
 
-    paginator = Paginator(article_list, 20)
+    paginator = Paginator(article_list, ARTICLES_PER_PAGE)
 
     page = request.GET.get('page')
     articles = paginator.get_page(page)
@@ -65,7 +66,7 @@ def list_searched_articles(request, fields):
                     Article.objects.filter(content__contains=fields) |
                     Article.objects.filter(author__name__contains=fields))
 
-    paginator = Paginator(article_list, 20)
+    paginator = Paginator(article_list, ARTICLES_PER_PAGE)
 
     page = request.GET.get('page')
     articles = paginator.get_page(page)

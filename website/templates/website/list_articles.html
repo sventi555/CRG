@@ -67,17 +67,21 @@
         <div class="pagination justify-content-center">
             <span class="step-links">
                 {% if articles.has_previous %}
-                    <a href="?page=1">&laquo; first</a>
-                    <a href="?page={{ articles.previous_page_number }}">previous</a>
+                    <span class="page_buttons">
+                        <a href="?page=1">&laquo; </a>
+                        <a href="?page={{ articles.previous_page_number }}">&lsaquo;</a>
+                    </span>
                 {% endif %}
 
                 <span class="current">
                     Page {{ articles.number }} of {{ articles.paginator.num_pages }}.
                 </span>
 
-                {% if contacts.has_next %}
-                    <a href="?page={{ articles.next_page_number }}">next</a>
-                    <a href="?page={{ articles.paginator.num_pages }}">last &raquo;</a>
+                {% if articles.has_next %}
+                    <span class="page_buttons">
+                        <a href="?page={{ articles.next_page_number }}">&rsaquo;</a>
+                        <a href="?page={{ articles.paginator.num_pages }}"> &raquo;</a>
+                    </span>
                 {% endif %}
             </span>
         </div>

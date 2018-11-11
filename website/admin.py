@@ -4,6 +4,8 @@ from .models import *
 admin.site.register(StatusUpdate)
 admin.site.register(Author)
 admin.site.register(Category)
+admin.site.register(Image)
+
 
 @admin.register(Subcategory)
 class SubcategoryAdmin(admin.ModelAdmin):
@@ -16,6 +18,7 @@ class SubcategoryAdmin(admin.ModelAdmin):
         'name',
         'category',
     ]
+
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
