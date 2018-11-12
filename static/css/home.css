@@ -48,9 +48,15 @@
     justify-content: space-between;
     align-items: flex-start;
 }
-#article-grid .grid-item > p {
+#article-grid .grid-item .item-title {
     font-size: 3em;
+    margin-bottom: 0;
 }
+
+#article-grid .grid-item .item-preview {
+    font-size: 2em;
+}
+
 #article-grid .grid-item .item-footer {
     display: flex;
     flex-direction: row;

@@ -29,3 +29,7 @@ img {
 #back:hover {
     text-decoration: underline;
 }
+
+#endnotes {
+    font-size: 0.8em;
+}

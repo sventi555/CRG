@@ -5,6 +5,7 @@ admin.site.register(StatusUpdate)
 admin.site.register(Author)
 admin.site.register(Image)
 
+
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = [
@@ -26,21 +27,23 @@ class SubcategoryAdmin(admin.ModelAdmin):
     ]
 
 
+class ImageInline(admin.TabularInline):
+    model = Image
+    extra = 2
+
+
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    fields = [
-        'title',
-        'content',
-        'image',
-        'author',
-        'subcategory',
-        'featured',
-    ]
 
     list_display = [
         'title',
         'author',
         'subcategory',
     ]
+
+    inlines = [
+        ImageInline
+    ]
+
 
 

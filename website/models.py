@@ -34,21 +34,14 @@ class Subcategory(models.Model):
     def __str__(self):
         return self.name
 
+# TODO: REMEMBER TO WIPE OUT THE unneeded NULL=TRUEs for all models
 
-class Image(models.Model):
-    image = models.ImageField(upload_to=f'{date.today().year}/{date.today().month}/{date.today().day}')
-
-    def __str__(self):
-        return f'https://domain.com/media/{self.image.name}'
-
-
-# TODO: move header layout and edit font, add about page, social media links
 
 class Article(models.Model):
     title = models.CharField(max_length=140)
     content = models.TextField()
-    # TODO: Endnotes
-    # TODO: Preview
+    preview = models.TextField(blank=True)
+    endnotes = models.TextField(blank=True)
     image = models.ImageField(upload_to="thumbnails/", null=True)
     date = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
@@ -64,6 +57,14 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Image(models.Model):
+    image = models.ImageField(upload_to=f'{date.today().year}/{date.today().month}/{date.today().day}')
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='images', null=True)
+
+    def __str__(self):
+        return f'https://domain.com/media/{self.image.name}'
 
 
 class StatusUpdate(models.Model):

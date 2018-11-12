@@ -21,6 +21,7 @@
             <div>
                 {{ article.content|markdown_to_html|linebreaks }}
             </div>
+            {% if article.endnotes %}<div id="endnotes">{{ article.endnotes|linebreaks }}</div>{% endif %}
         </div>
     </main>
 {% endblock main %}
