@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="{% static "css/article_detail.css" %}">
 {% endblock head %}
 
+{% block title %}{{ article.title }}{% endblock title %}
+
 {% block main %}
     <main>
         <div class="container">

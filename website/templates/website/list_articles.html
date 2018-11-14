@@ -58,6 +58,9 @@
                             <div class="image mx-auto" style="background-image:url({{ feature_article.image.url }})"></div>
                         {% endif %}
                         <p class="article_title">{{ feature_article.title }}</p>
+                        {% if feature_article.preview %}
+                            <p class="article_preview"><em>{{ feature_article.preview }}</em></p>
+                        {% endif %}
                         <p class="article_author">{{ feature_article.author.name }}</p>
                         <p class="article_date">{{ feature_article.date }}</p>
                     </div>
