@@ -38,9 +38,9 @@ class Subcategory(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=140)
     content = models.TextField()
-    preview = models.TextField(blank=True)
-    endnotes = models.TextField(blank=True)
-    image = models.ImageField(upload_to="thumbnails/", null=True)
+    preview = models.TextField(blank=True, null=True)
+    endnotes = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to="thumbnails/", blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     subcategory = models.ForeignKey(Subcategory, on_delete=models.SET_NULL, null=True)
@@ -62,7 +62,7 @@ class Image(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='images', null=True)
 
     def __str__(self):
-        return f'https://domain.com/media/{self.image.name}'
+        return f'https://crgreview.com/media/{self.image.name}'
 
 
 class StatusUpdate(models.Model):

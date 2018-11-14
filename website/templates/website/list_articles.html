@@ -36,7 +36,7 @@
                 {% for article in articles %}
                     {% if article != feature_article %}
                         <a href="{% url "website:article_detail" article.pk %}">
-                            <div class="article d-flex flex-column-reverse flex-md-row justify-content-between align-items-center">
+                            <div class="article d-flex flex-column-reverse flex-md-row justify-content-between">
                                 <div class="text_info">
                                     <p class="article_title">{{ article.title }}</p>
                                     {% if article.preview %}<p class="article_preview"><em>{{ article.preview }}</em></p>{% endif %}
