@@ -7,6 +7,10 @@
     background-color: #1d3253;
 }
 
+.nav-link {
+    color: white !important;
+}
+
 header {
     background-color: rgba(217, 226, 220, 0.76);
 }
