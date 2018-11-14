@@ -16,13 +16,13 @@
 <body>
 {% block header %}
     <header class="mb-3">
-        <div class="justify-content-between">
+        <div id="site_header" class="d-md-flex align-items-center">
             <div id="logo" style="background-image:url({% static 'images/crg.png' %})"></div>
-            <p id="indig">
+            <div id="indig">
                 CRG occupies the unceded territory of the Haudenosaunee Confederacy, specifically the Kanien’kehá:ka
                 people.  It is part of a wider genocide which continues today.  We acknowledge the injustice of such
                 a publication originating in this context and hope its contribution can mitigate this unfairness.
-            </p>
+            </div>
         </div>
         {% menu_bar %}
     </header>

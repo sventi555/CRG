@@ -10,6 +10,9 @@ let navbar = document.getElementById("menu_bar");
 
 let sticky = navbar.offsetTop;
 
+window.onresize = () => {
+    sticky = navbar.offsetTop;
+};
 
 function myFunction() {
     let offset = navbar.offsetHeight;

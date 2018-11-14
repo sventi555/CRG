@@ -15,16 +15,17 @@ header {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    width: 20em;
+    min-width: 20em;
+    max-width: 20em;
     height: 8em;
 }
 
 #indig {
     font-family: "Baskerville Old Face";
     font-style: italic;
-    margin: 0 1em;
     line-height: 1em;
     font-size: 0.9em;
+    padding: 0 1em 0.3em 1em;
 }
 
 .sticky {
