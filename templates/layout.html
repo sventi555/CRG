@@ -16,7 +16,14 @@
 <body>
 {% block header %}
     <header class="mb-3">
-        <p>do the goddam header</p>
+        <div class="justify-content-between">
+            <div id="logo" style="background-image:url({% static 'images/crg.png' %})"></div>
+            <p id="indig">
+                CRG occupies the unceded territory of the Haudenosaunee Confederacy, specifically the Kanien’kehá:ka
+                people.  It is part of a wider genocide which continues today.  We acknowledge the injustice of such
+                a publication originating in this context and hope its contribution can mitigate this unfairness.
+            </p>
+        </div>
         {% menu_bar %}
     </header>
 {% endblock header %}

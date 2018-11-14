@@ -43,7 +43,7 @@
                                     <p class="article_author">{{ article.author.name }}</p>
                                     <p class="article_date">{{ article.date }}</p>
                                 </div>
-                                <div class="image" style="background-image:url({{ article.image.url }})"></div>
+                                {% if article.image %}<div class="image" style="background-image:url({{ article.image.url }})"></div>{% endif %}
                             </div>
                         </a>
                     {% endif %}
@@ -54,7 +54,9 @@
                 <a href="{% url "website:article_detail" feature_article.pk%}">
                     <div id="feature">
                         <p id="featured_in"><small>Featured in {{ category }}:</small></p>
-                        <div class="image mx-auto" style="background-image:url({{ feature_article.image.url }})"></div>
+                        {% if feature_article.image %}
+                            <div class="image mx-auto" style="background-image:url({{ feature_article.image.url }})"></div>
+                        {% endif %}
                         <p class="article_title">{{ feature_article.title }}</p>
                         <p class="article_author">{{ feature_article.author.name }}</p>
                         <p class="article_date">{{ feature_article.date }}</p>

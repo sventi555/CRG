@@ -7,6 +7,26 @@
     background-color: #1d3253;
 }
 
+header {
+    background-color: rgba(217, 226, 220, 0.76);
+}
+
+#logo {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20em;
+    height: 8em;
+}
+
+#indig {
+    font-family: "Baskerville Old Face";
+    font-style: italic;
+    margin: 0 1em;
+    line-height: 1em;
+    font-size: 0.9em;
+}
+
 .sticky {
     position: fixed;
     top: 0;

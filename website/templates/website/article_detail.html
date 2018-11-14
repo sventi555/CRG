@@ -11,7 +11,9 @@
         <div class="container">
             <a onclick="window.history.back()" id="back">&lsaquo;&lsaquo; back</a>
             <h2 id="title">{{ article.title }}</h2>
-            <div id="banner" style="background-image:url({{ article.image.url }})"></div>
+            {% if article.image %}
+                <div id="banner" style="background-image:url({{ article.image.url }})"></div>
+            {% endif %}
             <div id="article_info">
                 <p><small>
                     By {{ article.author.name }}<br>

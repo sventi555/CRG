@@ -34,8 +34,6 @@ class Subcategory(models.Model):
     def __str__(self):
         return self.name
 
-# TODO: REMEMBER TO WIPE OUT THE unneeded NULL=TRUEs for all models
-
 
 class Article(models.Model):
     title = models.CharField(max_length=140)
