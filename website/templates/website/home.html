@@ -16,7 +16,7 @@
                             <p class='item-subcategory'>{{ article.subcategory.category }}</p>
                         </div>
                         <p class='item-title'>{{ article.title }}</p>
-                        {% if article.preview %}<p class='item-preview'>{{ article.preview|truncatechars:100 }}</p>{% endif %}
+                        {% if article.preview %}<p class='item-preview'><em>{{ article.preview|truncatechars:100 }}</em></p>{% endif %}
                         <div class="item-footer">
                             <p class='item-author'>{{ article.author.name }}<p>
                             <p class='item-date'>{{ article.date|date:'Y-m-d' }}</p>

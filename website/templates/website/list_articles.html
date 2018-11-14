@@ -39,7 +39,7 @@
                             <div class="article d-flex flex-column-reverse flex-md-row justify-content-between align-items-center">
                                 <div class="text_info">
                                     <p class="article_title">{{ article.title }}</p>
-                                    {% if article.preview %}<b><p class="article_preview">{{ article.preview }}</p></b>{% endif %}
+                                    {% if article.preview %}<p class="article_preview"><em>{{ article.preview }}</em></p>{% endif %}
                                     <p class="article_author">{{ article.author.name }}</p>
                                     <p class="article_date">{{ article.date }}</p>
                                 </div>
