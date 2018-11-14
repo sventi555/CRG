@@ -1,5 +1,6 @@
 * {
-    font-family: "Times";
+    /*border: 1px solid red;*/
+    font-family: Times;
 }
 
 .navbar {
@@ -13,7 +14,15 @@
     z-index: 1000;
 }
 
+main {
+    margin-bottom: 5em;
+}
+
 footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1000;
     background-color: #1d3253;
     padding: 0.6em;
     text-align: center;

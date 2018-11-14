@@ -6,13 +6,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="{% url "website:home" %}">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url "website:home" %}">Home</a>
             </li>
             {% for category in categories %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url "website:list_articles"  category.pk %}">{{ category }}</a>
                 </li>
             {% endfor %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url "website:introductions" %}">About Us</a>
+            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
