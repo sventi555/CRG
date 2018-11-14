@@ -8,4 +8,7 @@ urlpatterns = [
     path('category=<int:pk>/', list_articles, name="list_articles"),
     path('subcategory=<int:pk>/', list_sub_articles, name="list_sub_articles"),
     path('fields=<str:fields>/', list_searched_articles, name="list_searched_articles"),
+    path('introductions', introductions, name="introductions"),
+    path('our_team', our_team, name="our_team"),
+    path('to_publish', to_publish, name="to_publish"),
 ]

@@ -4,6 +4,7 @@ from .models import *
 
 ARTICLES_PER_PAGE = 10
 
+
 def home(request):
     latest = []
     for category in Category.objects.all():
@@ -81,3 +82,15 @@ def article_detail(request, pk):
     return render(request, 'website/article_detail.html', {
         'article': article,
     })
+
+
+def introductions(request):
+    return render(request, 'website/introductions.html')
+
+
+def our_team(request):
+    return render(request, 'website/our_team.html')
+
+
+def to_publish(request):
+    return render(request, 'website/to_publish.html')
