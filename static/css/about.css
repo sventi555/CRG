@@ -5,3 +5,12 @@
 .subcategories a {
     margin: 1em;
 }
+
+.name {
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+.designation {
+    margin-top: 2em;
+}
