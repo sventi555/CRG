@@ -49,12 +49,12 @@
     align-items: flex-start;
 }
 #article-grid .grid-item .item-title {
-    font-size: 3em;
+    font-size: 2.5em;
     margin-bottom: 0;
 }
 
 #article-grid .grid-item .item-preview {
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 #article-grid .grid-item .item-footer {

@@ -7,7 +7,7 @@
     margin-right: 2em;
 }
 
-#articles a, a:link, a:visited, a:hover, a:active {
+#articles a, #articles a:link, #articles a:visited, #articles a:hover, #articles a:active {
     text-decoration: none;
     color: black;
 }
@@ -47,6 +47,11 @@
     padding: 1em;
     transition: all 0.2s ease-in-out;
     margin-top: 2.5em;
+}
+
+#feature_link, #feature_link:link, #feature_link:visited, #feature_link:hover, #feature_link:active {
+    text-decoration: none;
+    color: black;
 }
 
 #feature:hover {
