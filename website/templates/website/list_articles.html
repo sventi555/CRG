@@ -51,7 +51,7 @@
             </div>
 
             {% if feature_article %}
-                <a href="{% url "website:article_detail" feature_article.pk%}">
+                <a id="feature_link" href="{% url "website:article_detail" feature_article.pk%}">
                     <div id="feature">
                         <p id="featured_in"><small>Featured in {{ category }}:</small></p>
                         {% if feature_article.image %}

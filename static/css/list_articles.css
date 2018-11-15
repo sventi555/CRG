@@ -49,6 +49,11 @@
     margin-top: 2.5em;
 }
 
+#feature_link, #feature_link:link, #feature_link:visited, #feature_link:hover, #feature_link:active {
+    text-decoration: none;
+    color: black;
+}
+
 #feature:hover {
     background: rgb(217, 226, 220);
     transform: scale(1.015);
