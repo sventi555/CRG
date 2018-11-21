@@ -90,10 +90,9 @@
         min-width: 80%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: auto;
+        grid-auto-rows: 25em;
         grid-column-gap: 1em;
         grid-row-gap: 1em;
-        max-height: 30em;
     }
     #article-grid .grid-item {
         margin-bottom: 1em;
