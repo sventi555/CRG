@@ -66,7 +66,7 @@ class Image(models.Model):
 
 
 class StatusUpdate(models.Model):
-    content = models.CharField(max_length=140)
+    content = models.CharField(max_length=500)
     date = models.DateTimeField(auto_now_add=True)
 
     class Meta:

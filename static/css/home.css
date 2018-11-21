@@ -65,9 +65,10 @@
 }
 
 #sidebar {
-
 }
+
 #sidebar .info-card {
+    word-wrap: break-word;
     margin-bottom: 1em;
     padding: 1em 1em;
     background-color: #d6dfd9;
@@ -92,9 +93,10 @@
         grid-template-rows: auto;
         grid-column-gap: 1em;
         grid-row-gap: 1em;
+        max-height: 30em;
     }
     #article-grid .grid-item {
-        margin-bottom: auto;
+        margin-bottom: 1em;
         height: 100%;
     }
     #article-grid .grid-item:nth-child(3n) {
@@ -103,6 +105,9 @@
     #article-grid .grid-item:nth-child(6n+1),
     #article-grid .grid-item:nth-child(6n+5) {
         grid-column: span 2;
+    }
+    #sidebar {
+        max-width: 20%;
     }
     #sidebar .info-card {
         transition: transform ease-in-out 0.1s;

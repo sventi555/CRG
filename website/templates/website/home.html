@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% load static %}
+{% load extras %}
 
 {% block head %}
     <link rel="stylesheet" href="{% static "css/home.css" %}">
@@ -29,7 +30,7 @@
                 {% for update in status_updates %}
                     <div class="info-card">
                         <div class="info-card-body">
-                            <p>{{ update.content }}</p>
+                            <p>{{ update.content|markdown_to_html|linebreaks }}</p>
                             <p><em> - {{ update.date }}</em></p>
                         </div>
                     </div>
