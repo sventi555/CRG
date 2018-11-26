@@ -27,14 +27,16 @@
             </div>
             <div id="sidebar" class="container-fluid">
                 <h3><em>Weekly Briefing:</em></h3>
-                {% for update in status_updates %}
-                    <div class="info-card">
-                        <div class="info-card-body">
-                            <p>{{ update.content|markdown_to_html|linebreaks }}</p>
-                            <p><em> - {{ update.date }}</em></p>
+                <div id="info-cards">
+                    {% for update in status_updates %}
+                        <div class="info-card">
+                            <div class="info-card-body">
+                                <p>{{ update.content|markdown_to_html|linebreaks }}</p>
+                                <p><em> - {{ update.date }}</em></p>
+                            </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </main>

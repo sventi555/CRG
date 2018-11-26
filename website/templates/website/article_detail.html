@@ -22,7 +22,7 @@
                     Published {{ article.date|date:'Y-m-d' }}<br>
                 </small></p>
             </div>
-            <div>
+            <div id="content">
                 {{ article.content|markdown_to_html|linebreaks }}
             </div>
             {% if article.endnotes %}<div id="endnotes">{{ article.endnotes|linebreaks }}</div>{% endif %}

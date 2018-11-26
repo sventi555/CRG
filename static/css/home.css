@@ -65,7 +65,11 @@
 }
 
 #sidebar {
+    background-color: rgb(250, 250, 250);
+    max-height: 150vh;
+    overflow-y: scroll;
 }
+
 
 #sidebar .info-card {
     word-wrap: break-word;

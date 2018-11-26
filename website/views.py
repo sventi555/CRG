@@ -8,7 +8,7 @@ ARTICLES_PER_PAGE = 10
 def home(request):
     latest = []
     for category in Category.objects.all():
-        article = Article.objects.filter(subcategory__category=category)[0:1]
+        article = Article.objects.filter(subcategory__category=category).exclude(featured=False)[0:1]
         if article:
             latest.append(article[0])
 

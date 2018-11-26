@@ -1,9 +1,4 @@
 
-img {
-    max-width: 70%;
-    max-height: 20em;
-}
-
 #banner {
     background-size: cover;
     background-position: center;
@@ -29,6 +24,13 @@ img {
 #back:hover {
     text-decoration: underline;
 }
+
+#content img {
+    display: block;
+    max-width: 75%;
+    margin: 1em auto;
+}
+
 
 #endnotes {
     font-size: 0.8em;
