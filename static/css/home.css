@@ -66,6 +66,9 @@
 
 #sidebar {
     background-color: rgb(250, 250, 250);
+}
+
+#sidebar #info-cards {
     max-height: 150vh;
     overflow-y: scroll;
 }
@@ -114,9 +117,6 @@
     }
     #sidebar .info-card {
         transition: transform ease-in-out 0.1s;
-    }
-    #sidebar .info-card:hover {
-        transform: translateX(-10px);
     }
 }
 
