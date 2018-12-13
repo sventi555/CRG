@@ -17,7 +17,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 2em;
+    padding: 1em;
     background-size: cover;
     background-position: center;
 
@@ -43,18 +43,20 @@
     background-color: rgba(214,223,217, 0.9);
 }
 #article-grid .grid-item .item-heading {
+    font-weight: bold;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
 }
 #article-grid .grid-item .item-title {
-    font-size: 2.5em;
+    font-size: 1.6em;
+    font-weight: bold;
     margin-bottom: 0;
 }
 
 #article-grid .grid-item .item-preview {
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 #article-grid .grid-item .item-footer {
