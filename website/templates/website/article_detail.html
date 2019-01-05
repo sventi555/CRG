@@ -5,6 +5,9 @@
 {% block og_image %}
 <meta property="og:image" content="{{ article.image.url }}">
 {% endblock og_image %}
+{% block og_description %}
+<meta property="og:description" content="{{ article.preview }}">
+{% endblock og_description %}
 
 {% block head %}
     <link rel="stylesheet" href="{% static "css/article_detail.css" %}">
