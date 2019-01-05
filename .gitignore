@@ -3,6 +3,7 @@ venv/
 keys/
 media/
 .idea/
+__pycache__/
 
 # file types
 *.sqlite3
