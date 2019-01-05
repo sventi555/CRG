@@ -26,7 +26,8 @@ SECRET_KEY = open(os.path.join(BASE_DIR, 'keys/django_key'))
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost',
-                 'sventi.com',
+                 'crgreview.com',
+                 'www.crgreview.com',
                  ]
 
 
