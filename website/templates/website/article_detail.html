@@ -2,12 +2,17 @@
 {% load static %}
 {% load extras %}
 
+{% if article.image %}
 {% block og_image %}
-<meta property="og:image" content="{{ article.image.url }}">
+    <meta property="og:image" content="{{ article.image.url }}">
 {% endblock og_image %}
+{% endif %}
+
+{% if article.preview %}
 {% block og_description %}
-<meta property="og:description" content="{{ article.preview }}">
+    <meta property="og:description" content="{{ article.preview }}">
 {% endblock og_description %}
+{% endif %}
 
 {% block head %}
     <link rel="stylesheet" href="{% static "css/article_detail.css" %}">
