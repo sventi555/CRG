@@ -2,11 +2,11 @@
 {% load static %}
 {% load extras %}
 
-{% if article.image %}
 {% block og_image %}
+    {% if article.image %}
     <meta property="og:image" content="{{ article.image.url }}">
+    {% endif %}
 {% endblock og_image %}
-{% endif %}
 
 {% if article.preview %}
 {% block og_description %}
