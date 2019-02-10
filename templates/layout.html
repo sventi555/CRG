@@ -1,6 +1,8 @@
 {% load static %}
 {% load extras %}
 
+{% with "1.0.0" as css_version %}
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,7 +16,7 @@
     {% block og_description %}<meta property="og:description" content="Contemporary Review of Genocides and Political Violence">{% endblock og_description %}
     <link rel="icon" href="{% static 'images/logo.png' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static "css/styles.css" %}">
+    <link rel="stylesheet" href="{% static "css/styles.css" %}?ver={{ css_version }}">
     <title>{% block title %}Contemporary Review of Genocides{% endblock title %}</title>
     {% block head %}{% endblock head %}
 
@@ -48,3 +50,5 @@
 {% block scripts %}{% endblock scripts %}
 </body>
 </html>
+
+{% endwith %}

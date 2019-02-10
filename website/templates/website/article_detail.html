@@ -15,7 +15,7 @@
 {% endif %}
 
 {% block head %}
-    <link rel="stylesheet" href="{% static "css/article_detail.css" %}">
+    <link rel="stylesheet" href="{% static "css/article_detail.css" %}?ver={{ css_version }}">
 {% endblock head %}
 
 {% block title %}{{ article.title }}{% endblock title %}

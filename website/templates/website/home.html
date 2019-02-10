@@ -3,7 +3,7 @@
 {% load extras %}
 
 {% block head %}
-    <link rel="stylesheet" href="{% static "css/home.css" %}">
+    <link rel="stylesheet" href="{% static "css/home.css" %}?ver={{ css_version }}">
 
 {% endblock head %}
 
@@ -12,7 +12,12 @@
         <div id="wrapper" class="container-fluid d-xl-flex flex-xl-row">
             <div id="article-grid" class="container-fluid mb-4">
                 {% for article in articles %}
-                    <a href="{% url "website:article_detail" article.pk %}" class='grid-item' {% if article.image %}style="background-image: url('{{ article.image.url }}');"{% endif %}>
+                    <a href="{% url "website:article_detail" article.pk %}"
+                       id= "{{ article.subcategory.category.name }}"
+                       class='grid-item'
+                       {% if article.image %}
+                       style="background-image: url('{{ article.image.url }}');"
+                       {% endif %}>
                         <div class="item-heading">
                             <p class='item-subcategory'>{{ article.subcategory.category }}</p>
                         </div>
