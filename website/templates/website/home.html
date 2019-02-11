@@ -13,7 +13,6 @@
             <div id="article-grid" class="container-fluid mb-4">
                 {% for article in articles %}
                     <a href="{% url "website:article_detail" article.pk %}"
-                       id= "{{ article.subcategory.category.name }}"
                        class='grid-item'
                        {% if article.image %}
                        style="background-image: url('{{ article.image.url }}');"
@@ -29,6 +28,9 @@
                         </div>
                     </a>
                 {% endfor %}
+                <div id="call_to_action" class='grid-item'>
+                    <p>Submit your article by February 26, 2019!</p>
+                </div>
             </div>
             <div id="sidebar" class="container-fluid">
                 <h3><em>Weekly Briefing:</em></h3>

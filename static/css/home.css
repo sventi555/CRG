@@ -113,6 +113,14 @@
     #article-grid .grid-item:nth-child(6n+5) {
         grid-column: span 2;
     }
+    #article-grid #call_to_action {
+        border: 2px solid #1d3253;
+        text-align: center;
+    }
+    #article-grid #call_to_action p {
+        font-size: 2em;
+        margin: auto 0px;
+    }
     #sidebar .info-card {
         transition: transform ease-in-out 0.1s;
     }
