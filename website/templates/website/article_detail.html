@@ -8,11 +8,11 @@
     {% endif %}
 {% endblock og_image %}
 
-{% if article.preview %}
 {% block og_description %}
+    {% if article.preview %}
     <meta property="og:description" content="{{ article.preview }}">
+    {% endif %}
 {% endblock og_description %}
-{% endif %}
 
 {% block head %}
     <link rel="stylesheet" href="{% static "css/article_detail.css" %}?ver={{ css_version }}">
