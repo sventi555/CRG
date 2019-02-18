@@ -80,4 +80,4 @@ class SubmissionRequest(models.Model):
     content = models.TextField()
 
     def __str__(self):
-        return "Submission request: " + self.id
+        return "Submission request: " + str(self.id)
