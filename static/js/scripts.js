@@ -8,17 +8,17 @@ window.onscroll = myFunction;
 
 let navbar = document.getElementById("menu_bar");
 
-let sticky = navbar.offsetTop;
+let headerHeight = navbar.offsetTop;
 
 window.onresize = () => {
-    sticky = $("#site_header").height();
+    headerHeight = $("#site_header").height();
 };
 
 function myFunction() {
-    let offset = navbar.offsetHeight;
-    if (window.pageYOffset >= sticky) {
+    let navbarHeight = navbar.offsetHeight;
+    if (window.pageYOffset >= headerHeight) {
         navbar.classList.add("sticky");
-        $("main").css("padding-top", `${offset}px`);
+        $("main").css("padding-top", `${navbarHeight}px`);
     } else {
         navbar.classList.remove("sticky");
         $("main").css("padding-top", "0");
