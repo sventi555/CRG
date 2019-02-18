@@ -4,6 +4,7 @@ from .models import *
 admin.site.register(StatusUpdate)
 admin.site.register(Author)
 admin.site.register(Image)
+admin.site.register(SubmissionRequest)
 
 
 @admin.register(Category)
@@ -44,6 +45,7 @@ class ArticleAdmin(admin.ModelAdmin):
     inlines = [
         ImageInline
     ]
+
 
 
 

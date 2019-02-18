@@ -76,6 +76,8 @@ class StatusUpdate(models.Model):
         return self.content[0:10] + '...'
 
 
+class SubmissionRequest(models.Model):
+    content = models.TextField()
 
-
-
+    def __str__(self):
+        return "Submission request: " + self.id

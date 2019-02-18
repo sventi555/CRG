@@ -13,9 +13,11 @@ def home(request):
             latest.append(article[0])
 
     status_updates = StatusUpdate.objects.all()[0:10]
+    submission_request = SubmissionRequest.objects.all()[0]
     return render(request, 'website/home.html', {
         'articles': latest,
         'status_updates': status_updates,
+        'submission_request': submission_request,
     })
 
 

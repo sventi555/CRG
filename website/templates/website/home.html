@@ -29,7 +29,9 @@
                     </a>
                 {% endfor %}
                 <div id="call_to_action" class='grid-item'>
-                    <p>Submit your article by February 26, 2019!</p>
+                    <div>
+                        {{ submission_request.content|markdown_to_html|linebreaks }}
+                    </div>
                 </div>
             </div>
             <div id="sidebar" class="container-fluid">
