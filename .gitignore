@@ -1,11 +1,9 @@
 # directories
-venv/
-keys/
 media/
-.idea/
 __pycache__/
 
 # file types
 *.sqlite3
 
 # files
+config.json
