@@ -1,4 +1,4 @@
-Django==2.1.7
-markdown2==2.3.7
-Pillow==5.4.1
-pytz==2018.9
+Django==2.1.9
+markdown2==2.3.8
+Pillow==6.0.0
+pytz==2019.1
